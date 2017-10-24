@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <script src = "jquery-3.2.1.min.js"></script>
+        <style>
+            .square{
+                height:100px;
+                width:100px;
+                background-color: blue;
+                position:absolute;
+            }
+           
+        
+        </style>
+    </head>
+    <body>
+        
+    <div class = "square" id="square" onclick = "dowork()">
+    </div>
+    <script type="text/javascript">
+var chimp=1;
+     
+ function dowork(){
+     if(chimp ==1){
+        "follow()";
+         chimp++;
+     }
+     else{
+         "unfollow()";
+         chimp--;
+     }
+ }
+        
+        
+        
+      function follow(){
+          
+    $(document).mousemove(function(e){
+    $(".square").css({left:e.pageX, top:e.pageY});
+});}
+        function unfollow(){
+          $(".square").css({left:e.pageX, top:e.pageY});
+});}  
+        
+    </script>
+    </body>
+</html>

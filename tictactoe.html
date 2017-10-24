@@ -1,0 +1,378 @@
+<html>
+    <head>
+          <script src = "jquery-3.2.1.min.js"></script>
+        <style>
+            .box{
+                background-color:beige;
+                height:100px;
+                width:100px;
+                border:1px solid black;
+                float:left;
+                
+            }
+            .boundary{
+                width:310px;
+                height:310px;
+            }
+            .pogchamp{
+                top:0px;
+                left: 600px;
+                position:absolute;
+            }
+            /* Dropdown Button */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+        </style>
+    </head>
+    <body>
+        <h1 id = "turn"> player 1 </h1>
+        <div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+        <div class = "pogchamp">
+            <img src = "pogchamp.png" onclick = "genius()">
+        </div>
+        <div class = "boundary" id = "around">
+            <div id = "b1" class = "box"></div>
+            <div id = "b2" class = "box"></div>
+            <div id = "b3" class = "box"></div>
+            <div id = "b4" class = "box"></div>
+            <div id = "b5" class = "box"></div>
+            <div id = "b6" class = "box"></div>
+            <div id = "b7" class = "box"></div>
+            <div id = "b8" class = "box"></div>
+            <div id = "b9" class = "box"></div>
+        </div>
+        <input type = "text" id="textbox">
+        <input type = "text" id="textbox">
+        <button onclick="reset()">reset</button>
+         <button onclick="smaller()">small size </button>
+         <button onclick="medium()">medium size </button>
+         <button onclick="larger()">large size</button>
+        
+        <script>
+            var b1 = document.getElementById("b1");
+            var b2 = document.getElementById("b2");
+            var b3 = document.getElementById("b3");
+            var b4 = document.getElementById("b4");
+            var b5 = document.getElementById("b5");
+            var b6 = document.getElementById("b6");
+            var b7 = document.getElementById("b7");
+            var b8 = document.getElementById("b8");
+            var b9 = document.getElementById("b9");
+            var around = document.getElementById("around");
+            
+            var grid = [0,0,0,0,0,0,0,0,0,0];
+           
+            var x = 0;
+            function genius(){
+             $(document).mousemove(function(e){
+            $(".pogchamp").css({left:e.pageX, top:e.pageY});
+             });}
+             document.getElementById("b1").onclick = function(){
+                 if(x%2==0&& grid[0]==0 ){
+                     b1.style.backgroundColor = "red"; 
+                     grid[0]=1
+                     x++;
+                     document.getElementById("turn").innerHTML="player 2";
+                     
+                 }
+                 else if(x%2==1 && grid[0]==0){
+                     b1.style.backgroundColor = "blue";
+                     x++;
+                   grid[0]=2
+                     document.getElementById("turn").innerHTML="player 1";
+                 }
+                 else if(grid[0]!=0){
+                     alert("nah");
+                 }
+                     
+             }
+              document.getElementById("b2").onclick = function(){
+                 if(x%2==0 && grid[1]==0){
+                     b2.style.backgroundColor = "red"; 
+                     x++;
+                  grid[1]=1
+                     document.getElementById("turn").innerHTML="player 2";
+                 }
+                 else if(x%2==1 && grid[1]==0){
+                     b2.style.backgroundColor = "blue";
+                     x++;
+                   grid[1]=2
+                      document.getElementById("turn").innerHTML="player 1";
+                 }
+                   else if(grid[1]!=0){
+                     alert("nah");
+                 }
+                     
+             }
+               document.getElementById("b3").onclick = function(){
+                 if(x%2==0 && grid[2]==0){
+                     b3.style.backgroundColor = "red"; 
+                     x++;
+                    grid[2]=1
+                     document.getElementById("turn").innerHTML="player 2";
+                 }
+                 else if(x%2==1 && grid[2]==0){
+                     b3.style.backgroundColor = "blue";
+                     x++;
+                     grid[2]=2
+                      document.getElementById("turn").innerHTML="player 1";
+                 }
+                    else if(grid[2]!=0){
+                     alert("nah");
+                 }
+                     
+             }
+                document.getElementById("b4").onclick = function(){
+                 if(x%2==0&& grid[3]==0){
+                     b4.style.backgroundColor = "red"; 
+                     x++;
+                     grid[3]=1
+                     document.getElementById("turn").innerHTML="player 2";
+                 }
+                 else if(x%2==1 && grid[3]==0){
+                     b4.style.backgroundColor = "blue";
+                     x++;
+                    grid[3]=2
+                      document.getElementById("turn").innerHTML="player 1";
+                     
+                 }
+                     else if(grid[3]!=0){
+                     alert("nah");
+                 }
+                     
+             }
+                 document.getElementById("b5").onclick = function(){
+                 if(x%2==0&& grid[4]==0){
+                     b5.style.backgroundColor = "red"; 
+                     x++;
+               grid[4]=1
+                     document.getElementById("turn").innerHTML="player 2";
+                 }
+                 else if(x%2==1 &&grid[4]==0){
+                     b5.style.backgroundColor = "blue";
+                     x++;
+                     grid[4]=2
+                      document.getElementById("turn").innerHTML="player 1";
+                     
+                 }
+                      else if(grid[4]!=0){
+                     alert("nah");
+                 }
+                     
+             }
+                  document.getElementById("b6").onclick = function(){
+                 if(x%2==0 &&grid[5]==0){
+                     b6.style.backgroundColor = "red"; 
+                     x++;
+                   grid[5]=1
+                     document.getElementById("turn").innerHTML="player 2";
+                 }
+                 else if(x%2==1 && grid[5]==0){
+                     b6.style.backgroundColor = "blue";
+                     x++;
+                    grid[5]=2
+                      document.getElementById("turn").innerHTML="player 1";
+                 }
+                       else if(grid[5]!=0){
+                     alert("nah");
+                 }
+                     
+             }
+                 
+                    document.getElementById("b7").onclick = function(){
+                 if(x%2==0 &&  grid[6]==0){
+                     b7.style.backgroundColor = "red"; 
+                     x++;
+                    grid[6]=1
+                     document.getElementById("turn").innerHTML="player 2";
+                 }
+                 else if(x%2==1 && grid[6]==0){
+                     b7.style.backgroundColor = "blue";
+                     x++;
+                     grid[6]=2
+                      document.getElementById("turn").innerHTML="player 1";
+                     
+                 }
+                         else if(grid[6]!=0){
+                     alert("nah");
+                 }
+                     
+             }
+                     document.getElementById("b8").onclick = function(){
+                 if(x%2==0 && grid[7]==0){
+                     b8.style.backgroundColor = "red"; 
+                     x++;
+                     grid[7]=1
+                     document.getElementById("turn").innerHTML="player 2";
+                 }
+                 else if(x%2==1 && grid[7]==0){
+                     b8.style.backgroundColor = "blue";
+                     x++;
+                     grid[7]=2
+                      document.getElementById("turn").innerHTML="player 1";
+                     
+                 }
+                          else if(grid[7]!=0){
+                     alert("nah");
+                 }
+                     
+             }
+                      document.getElementById("b9").onclick = function(){
+                 if(x%2==0 && grid[8]==0){
+                     b9.style.backgroundColor = "red"; 
+                     x++;
+                    grid[8]=1
+                     document.getElementById("turn").innerHTML="player 2";
+                 }
+                 else if(x%2==1 &&grid[8]==0){
+                     b9.style.backgroundColor = "blue";
+                     x++;
+                     grid[8]=2
+                      document.getElementById("turn").innerHTML="player 1";
+                     
+                 }
+                           else if(grid[8]!=0){
+                     alert("nah");
+                 }
+                     
+             }
+                    function reset(){
+                        grid = [0,0,0,0,0,0,0,0,0];
+                        b1.style.backgroundColor = "beige"; 
+                        b2.style.backgroundColor = "beige"; 
+                        b3.style.backgroundColor = "beige"; 
+                        b4.style.backgroundColor = "beige"; 
+                        b5.style.backgroundColor = "beige"; 
+                        b6.style.backgroundColor = "beige"; 
+                        b7.style.backgroundColor = "beige"; 
+                        b8.style.backgroundColor = "beige"; 
+                        b9.style.backgroundColor = "beige"; 
+                     document.getElementById("turn").innerHTML="player 1";
+                        x = 0;
+                        
+                    }
+            function smaller(){
+                b1.style.height = "50px";
+                b1.style.width = "50px";
+                b2.style.height = "50px";
+                b2.style.width = "50px";
+                b3.style.height = "50px";
+                b3.style.width = "50px";
+                b4.style.height = "50px";
+                b4.style.width ="50px";
+                b5.style.height = "50px";
+                b5.style.width = "50px";
+                b6.style.height = "50px";
+                b6.style.width = "50px";
+                b7.style.height = "50px";
+                b7.style.width = "50px";
+                b8.style.height = "50px";
+                b8.style.width = "50px";
+                b9.style.height = "50px";
+                b9.style.width = "50px";
+               around.style.height = "200px";
+                around.style.width = "200px";
+                
+            }
+            function medium(){
+                b1.style.height = "100px";
+                b1.style.width = "100px";
+                b2.style.height = "100px";
+                b2.style.width = "100px";
+                b3.style.height = "100px";
+                b3.style.width = "100px";
+                b4.style.height = "100px";
+                b4.style.width ="100px";
+                b5.style.height = "100px";
+                b5.style.width = "100px";
+                b6.style.height = "100px";
+                b6.style.width = "100px";
+                b7.style.height = "100px";
+                b7.style.width = "100px";
+                b8.style.height = "100px";
+                b8.style.width = "100px";
+                b9.style.height = "100px";
+                b9.style.width = "100px";
+               around.style.height = "310px";
+                around.style.width = "310px";
+                
+            }
+            function larger(){
+                 b1.style.height = "200px";
+                b1.style.width = "200px";
+                b2.style.height = "200px";
+                b2.style.width = "200px";
+                b3.style.height = "200px";
+                b3.style.width = "200px";
+                b4.style.height = "200px";
+                b4.style.width ="200px";
+                b5.style.height = "200px";
+                b5.style.width = "200px";
+                b6.style.height = "200px";
+                b6.style.width = "200px";
+                b7.style.height = "200px";
+                b7.style.width = "200px";
+                b8.style.height = "200px";
+                b8.style.width = "200px";
+                b9.style.height = "200px";
+                b9.style.width = "200px";
+               around.style.height = "700px";
+                around.style.width = "700px";
+                
+            }          
+                     
+            
+            
+        </script>
+    </body>
+</html>

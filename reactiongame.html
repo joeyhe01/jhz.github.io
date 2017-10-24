@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <style>
+            .chimp{
+                height:100px;
+                width:100px;
+                background-color:black;
+                position: relative;
+            }
+        </style>
+    </head>
+    <body>
+         <h1 id="time">0</h1>
+        <h1>best time: </h1><h1 id="bestTime">0</h1>
+        <div class="chimp" onclick="start()" id = "chimp">
+        </div>
+       
+        <script>
+            var chimp = document.getElementById("chimp");
+            var height = 0;
+            var width = 0;
+            var left = 0;
+            var distTop = 0;
+            var prevTime = 0;
+              var startTime = new Date().getTime();
+            document.getElementById("bestTime").innerHTML = "100000";
+            
+            
+            
+            
+            function start(){
+                height = Math.random()*300 + 100;
+                width = Math.random()*300 + 100;
+                distTop = Math.random()*600;
+                left = Math.random()*1000;
+                
+                chimp.style.top = distTop+"px";
+                chimp.style.left = left + "px";
+                chimp.style.height = height + "px";
+                chimp.style.width = width + "px";
+                chimp.style.backgroundColor = "#"+getColor();
+                var time = getTime();
+                document.getElementById("time").innerHTML = "Time: " + time + " seconds";
+                if(time < parseFloat(document.getElementById("bestTime").innerHTML)){
+                    document.getElementById("bestTime").innerHTML = time;
+                    console.log("hi");
+                }
+                
+
+                
+                
+            }
+            function getColor(){
+                
+               var color = "";
+
+                for (var i = 0; i < 6; i++) {
+                    var baboon = Math.floor(Math.random() * 16);
+                    if (baboon == 10) {
+                        color = color + "a"
+                    } else if (baboon == 11) {
+                        color = color + "b"
+                    } else if (baboon == 12) {
+                        color = color + "c"
+                    } else if (baboon == 13) {
+                        color = color + "d"
+                    } else if (baboon == 14) {
+                        color = color + "e"
+                    } else if (baboon == 15) {
+                        color = color + "f"
+                    } else {
+                        color = color + "" + baboon
+                    }
+                }
+                return color;
+
+                    
+                }
+            function getTime(){
+             
+                var diffTime = new Date().getTime()-startTime;
+                startTime = new Date().getTime();
+                
+                return diffTime/1000.0;
+            }
+            
+        </script>
+    </body>
+</html>

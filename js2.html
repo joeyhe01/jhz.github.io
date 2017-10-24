@@ -1,0 +1,40 @@
+document.getElementById("shape3").style.width = 200;<html>
+    <body>
+        
+        
+        <div id = "shape1" style = "height : 150px; width : 150px; background-color:blue;">
+        </div>
+          
+        <div id = shape2 style = "height : 150px; width : 150px; background-color:blue; border-radius:50%">
+        </div>
+          
+        <div id = shape3 style = "height : 150px; width : 150px; background-color:blue;">
+        
+        </div>
+        <button id = button>reset</button>
+        <script>
+          
+                document.getElementById("shape1").onclick = function(){
+                    
+                 document.getElementById("shape1").style.opacity="0";
+            }
+                
+                
+                
+            document.getElementById("shape2").onclick = function(){
+                document.getElementById("shape2").style.backgroundColor = "red";
+                  
+            }
+            document.getElementById("shape3").onclick = function(){
+                document.getElementById("shape3").style.width = "200px";
+                document.getElementById("shape3").style.height = "200px";
+            }
+         document.getElementById("button").onclick = function(){
+                document.getElementById("shape1").style.opacity="100";
+                document.getElementById("shape2").style.backgroundColor = "blue";
+                document.getElementById("shape3").style.width = "150px";
+                document.getElementById("shape3").style.height = "150px";
+            }
+        </script>
+    </body>
+</html>
